@@ -1,0 +1,38 @@
+<div style="display: flex; flex-direction: row;">
+    <div class="article-pick-buttons">
+        <button (click)="onPick(pickableArticle.id)" class="article-pick-button"
+            *ngFor='let pickableArticle of articlesPickList'>
+            {{pickableArticle.publishDate}}
+
+        </button>
+    </div>
+    <div class="article-zone">
+        <div>
+            <h1>{{currentArticle.title}}</h1>
+            <h4>Views: {{currentArticle.views}}</h4>
+            <h4>Date: {{currentArticle.createdDateRead}}</h4>
+            {{currentArticle.content}}
+        </div>
+
+        <div class="center-this">
+            <al-like [likeAggregator]="currentArticle.likeAggregator"></al-like>
+        </div>
+
+        <h4>Comments</h4>
+
+        <div>
+            <div *ngFor='let currentComment of this.currentArticle.comments'  class="comment-making-zone">
+                <div class="comment-sign">
+                    <b>{{currentComment.createdDateRead}} {{currentComment.author}}</b>
+                    <al-like [likeAggregator]="currentComment.likeAggregator"></al-like>
+                </div>
+                {{currentComment.content}}
+            </div>
+        </div>
+        <div >
+            <textarea class="guestbook-texttowrite" [value]="textAreaCommentContent" (change)="doTextareaValueChangeForComment($event)"></textarea>
+            <textarea class="guestbook-authortowrite" [value]="textAreaCommentAuthor" (change)="doTextareaValueChangeForAuthor($event)"></textarea>
+        </div>
+        <button (click)='postComment()' class="addButton">Post</button>
+    </div>
+</div>

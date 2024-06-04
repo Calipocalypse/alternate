@@ -1,0 +1,25 @@
+<video id="videoBG" [autoplay]="true" [muted]="true" [loop]="true" src="assets/media/background.mp4"></video>
+
+<div class="BlackStripes"></div>
+
+<div id="container">
+	<al-menu (pageSelected)="currentPage = $event"></al-menu>
+	<div id="subcontainermaster">
+		<div id="subcontainer">
+			<al-progress></al-progress>
+			<div id="right-panel" [ngSwitch]="currentPage">
+				<al-home class="article" *ngSwitchCase="'home'"></al-home>
+				<al-news *ngSwitchCase="'news'"></al-news>
+				<al-gallery *ngSwitchCase="'gallery'"></al-gallery>
+				<al-about *ngSwitchCase="'about'"></al-about>
+				<al-download *ngSwitchCase="'download'"></al-download>
+				<al-contact *ngSwitchCase="'contact'"></al-contact>
+				<al-faq *ngSwitchCase="'faq'"></al-faq>
+				<al-guestbook *ngSwitchCase ="'guestbook'"></al-guestbook>
+			</div>
+		</div>
+	</div>
+	<!-- <div id="footer">
+		Fallout 2: Alternate 2163
+	</div> -->
+</div>
