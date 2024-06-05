@@ -70,12 +70,6 @@ lerna-debug.log
 # Angular specific files
 .angular/cache
 
-# Compiled output
-/dist/
-/dist-ssr/
-/dist-browser/
-/dist-server/
-
 # Private files
 /private/
 /private-local/
